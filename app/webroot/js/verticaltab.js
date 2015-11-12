@@ -5,7 +5,7 @@ var catimagelib = {
             "name" : "bg0",
             "link" : "../img/card0.png",
             "x":"300px",
-            "y":"100px",
+            "y":"150px",
         },
         {
             "name" : "bg1",
@@ -17,13 +17,13 @@ var catimagelib = {
             "name" : "bg2",
             "link" : "../img/card2.png",
             "x":"250px",
-            "y":"200px",
+            "y":"250px",
         },
         {
             "name" : "bg3",
             "link" : "../img/card3.png",
             "x":"250px",
-            "y":"250px",
+            "y":"200px",
         },
         {
             "name" : "bg4",
@@ -209,8 +209,8 @@ $(document).ready(function() {
         var catimagelink = catimagelib.images[idnumber].link;
         var Dleft = catimagelib.images[idnumber].x;
         var Dtop = catimagelib.images[idnumber].y;
-        $(".ecard").children().attr("src" , catimagelink).attr("id", idnumber);
-        $(".textbox").css({'margin-left': Dleft, 'margin-top':Dtop});
+        //$(".ecard").children().attr("src" , catimagelink).attr({id: idnumber, class: "img-responsive"});
+        $("#blesscontent").css({'margin-left': Dleft, 'margin-top':Dtop});
     });
 
     $(".textindex").click(
@@ -222,17 +222,37 @@ $(document).ready(function() {
         $(".text").css({'font-size':Fsize, 'color':textcolor, 'font-family':FFamiy});
     });
 
-    $(".pendantindex").click(
-        function () {
-            var transferimg = $(this).clone();
-            var absolutepend = transferimg.css("position", "absolute");
-            absolutepend.prependTo(".wrappers");
-            var cloneimg = $(".wrappers").children().first();
-            console.log(cloneimg);
-            cloneimg.addClass("draggable");
-            cloneimg.css("border", "0px solid white");
-            $(".draggable").draggable({ snap : ".wrappers"});
+    $(".wrappers").on('mouseover',".pendant-clone" , function() {
+        $(this).draggable ({
+            containment: ".wrappers",
+            scroll: false
+        });
+    });
+    $(".pendantindex").draggable({
+        helper: "clone",
+        snapMode: "inner",
+        stack: "img",
+        stop: function (event, ui) {
+            var coords = $('.wrappers').position();
+            var offset = $('.pendants').width();
+            coords.bottom = coords.top + $('.wrappers').height();
+            coords.bottomRight = coords.left + $('.wrappers').width();
+            var leftcalcu = ui.position.left - offset;
+            if(ui.position.top >= coords.top && ui.position.top <= coords.bottom && leftcalcu >= coords.left && ui.position.left <= coords.bottomRight){
+                console.info("inside");
+                var uiposition = $(ui.helper).position();
+                var cloneposi = uiposition.left - offset;
+                console.log(cloneposi);
+                $(ui.helper).css("left",cloneposi);
+                var clonependant = $(ui.helper).clone(true).removeClass("pendantindex").addClass("pendant-clone").appendTo(".wrappers");
+                clonependant.css({
+                    "border": "0px solid white"
+                })
+            }else{
+                console.info("outside");
+            }
         }
-    )
+    });
+
 });
 

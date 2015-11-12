@@ -174,3 +174,8 @@ p,a,h1,h2,h3,h4 {
     left: 0;
     top:0;
 }
+
+.bgimage {
+    height: 490px;
+    width: 100%
+}

@@ -263,7 +263,7 @@
 			this.$el.imagesLoaded( function() {
 
 				// we need to hide the items except first one (current default value)
-				var $current = self.$items.eq( self.current ).css( 'display', 'block' ).addClass( 'sb-current' );
+				var $current = self.$items.eq( self.current ).css( 'display', 'block' ).addClass( 'sb-current bgimage' );
 
 				// get real size of image
 				var i = new Image();
@@ -450,7 +450,7 @@
 			
 			this.$items.eq( this.current ).fadeIn( this.options.fallbackFadeSpeed, function() {
 
-				$( this ).css( 'display', 'block' ).addClass( 'sb-current' );
+				$( this ).css( 'display', 'block' ).addClass( 'sb-current bgimage' );
 				self.$el.css( 'height', 'auto' );
 				self.$items.css( 'position', 'relative' );
 				self.isAnimating = false;
@@ -544,6 +544,8 @@
 						self.$box.remove();
 						var $current = self.$items.eq( self.current );
 						$current.css( 'display', 'block' ); // show() makes it inline style
+						$current.children().addClass("img-responsive bgimage");
+
 						setTimeout(function() {
 							$current.addClass( 'sb-current' );
 						} , 0 );

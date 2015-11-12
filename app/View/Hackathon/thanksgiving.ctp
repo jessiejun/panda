@@ -126,14 +126,14 @@
 
             <!-- botttom-right -->
                 <div id="card_pic" class="col-lg-8 col-md-8 bhoechie-tab-container" style = "background-color:grey;height:500px;overflow:hidden;">
-                    <div id="blesscontent" style= "width:500px;position:absolute; left:30%; top:50%; color:#fff; font-weight:bold; font-size:5px;z-index:10000"> 
-                        <span class="text" id="greetingtext" data="<?php echo $bless_content;?>" style="10000"><?php echo $bless_content;?></span>
+                    <div id="blesscontent" style= "width:500px;position:absolute; margin-left:300px; margin-top:150px; color:#fff; font-weight:bold; font-size:5px;z-index:10000">
+                        <span class="text" id="greetingtext" style="font-size:23px; color:#BF567D;font-family: Noteworthy "data="<?php echo $bless_content;?>" style="10000"><?php echo $bless_content;?></span>
                         <span><a class="btn btn-warning" style="width:30px;z-index: 10000;" data-toggle="modal" data-target="#myModal" id="textinput">edit<span class="glyphicon glyphicon-pencil"></span></a>
                     </div>
-                    <div class="wrappers" style="height:509px;margin-top:-10px;">
+                    <div class="wrappers" style="height:509px;margin-top:-10px;width:100%">
                         <ul id="sb-slider" class="sb-slider" style="z-index:-1;">
                             <li>
-                            <?php echo $this->Html->image('card0.png', array('alt' => 'CakePHP'));?>
+                            <?php echo $this->Html->image('card0.png', array('alt' => 'CakePHP', 'class' => 'img-responsive bgimage'));?>
 
                             </li>
                             <li>
