@@ -21,7 +21,7 @@
         
 
     </style>
-    <title>Thanksgiving Ecard</title>
+    <title><? echo $title_for_layout ?></title>
     <?php echo $this->Html->script("jquery-1.9.1.min");?>
     <?php echo $this->Html->script("bootstrap.min");?>    
     <?php echo $this->Html->script("verticaltab");?>
@@ -167,11 +167,13 @@
         </section>
         <footer>
             <div class="container text-center footer">
-                <p>
-                    We Are Not Coders. All Rights Reserved. 2015 HACKATHON@PSU
-                </p>
+                <p><a href="http://jessiejun.github.io/panda">
+                    We Are Not Coders. All Rights Reserved.
+                </a>2015 HACKATHON@PSU</p>
 
             </div>
+             <div class="text-center" style="font-size: 10px;">
+            <a href="http://www.freepik.com/free-photos-vectors/card" style="color: #cccccc">Card vector designed by Freepik</a></div>
         </footer>
 
         <div class="modal fade" id="myModal" role="dialog">

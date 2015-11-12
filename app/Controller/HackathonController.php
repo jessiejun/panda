@@ -69,10 +69,16 @@ class HackathonController extends AppController {
 		}else{
 			$this->set("semaphore",1);
 			$this->set("bless_content", $bless_content);
-			
+
+
+
 		}
-			
-		
+
+		$this->set('title_for_layout', 'Happy Thanksgiving');
 				
+	}
+
+	public function index () {
+
 	}
 }
