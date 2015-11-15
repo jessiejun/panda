@@ -163,6 +163,8 @@ var pendantitemPH = '<img src="%data%" id = "%number%" style = "width: 100px; he
 
 
 $(document).ready(function() {
+
+    //function for generating vertical tab
     $("div.bhoechie-tab-menu>div.list-group>a").click(function(e) {
         e.preventDefault();
         $(this).siblings('a.active').removeClass("active");
@@ -175,6 +177,7 @@ $(document).ready(function() {
         $(".text").css("border", "1px s")
     });
 
+    //function for generating thumbnail list of background images
     catimagelib.namelist = function() {
       for (cat in catimagelib.images) {
         var catlistitem = catlistitemPH.replace("%data%" , catimagelib.images[cat].link).replace("%number%" , cat);
@@ -182,6 +185,8 @@ $(document).ready(function() {
         $('.background').append(catlistitem);
       }
     };
+
+    //function for generating thumbnail list of text styles
     textlib.stylelist = function() {
       for (ts in textlib.styles) {
         var styleitem = textstyleitemPH.replace("%data%" , textlib.styles[ts].link).replace("%number%" , ts);
@@ -190,6 +195,7 @@ $(document).ready(function() {
       }
     };
 
+    //function for generating thumbnail list of pendants
     plib.plist = function() {
       for (ps in plib.p) {
         var pitem = pendantitemPH .replace("%data%" , plib.p[ps].link).replace("%number%" , ps);
@@ -198,6 +204,7 @@ $(document).ready(function() {
       }
     };
 
+    //call generation functions
     catimagelib.namelist();
     textlib.stylelist();
     plib.plist();
